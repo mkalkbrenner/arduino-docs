@@ -1,0 +1,39 @@
+http://www.sainsmart.com/16-channel-12v-relay-module-for-pic-arm-avr-dsp-arduino-msp430-ttl-logic.html
+
+http://www.amazon.com/SainSmart-16-Channel-Relay-Module-Arduino/dp/B0057OC66U
+
+====
+
+A little help for anyone else that purchases this relay controller:
+
+1. It needs 16 digital pins to independently control all the 16 relays. The Arduino Uno has roughly 10 usable pins so an Arduino Uno is not ideal if you want to control all the pins independently. An Arduino mega would be the ideal choice for getting everything running perfectly.
+
+2. The female header on the controller has two ground pins and two 5V pins. Once the relay controller is connected to a 12V power source the controller will provide 5V of power on both of those 2 5V pins. Which means you wont need another external power source for the Arduino. One thing to note is that if you connect the USB cable after the relay is giving the Arduino 5V of power the USB will not connect. Disconnect the relay 5V pin from the 5V pin on the Arduino then connect it back to USB to solve the issue.
+
+3. The relays are loud. If you're going to use this to control something that will regularly turned on or off you'll probably want to put it into some type of enclosure to keep it quiet.
+
+Overall this is a great product, I recommend it to anyone looking to control some Christmas lights or setting up a home automation system.
+
+====
+
+Users have been asking how to activate the relays and you just connect the associated header pin corresponding to the relay pin directly to ground. See schematic
+
+The board uses +5VDC to feed a 1K ohm resistor array SMD's (PR1-8) that provide a current limit of approx 3ma to feed the opto-isolator IC's (817C) internal LED so........you Arduino or PIC users can just provide a "L" output condition (ie-ground) on your embedded controller to the select pin on the relay board to activate that associated relay.
+
+This board is well designed and with the associated schematic most users should be working in no time.
+
+====
+
+Just received the SainSmart 16-Channel 12V Relay Module for Arduino and am surprised there was no pin-out or schematic included in the shipment, not even a link I can download it from.
+Disappointing because now I am waiting for an email response from SainSmart (just sent 30 minutes ago) hoping they supply me with documentation.
+Every developer device I have ever purchased comes with a Pin-out and a schematic, why would they not include this??
+I have tinkered with it a little and found you have to supply +12VDC to the right pin on the blue terminal (labeled 12V) and the negative of that same 12VDC supply to the left pin (labeled GND).
+This energizes the LM2576 voltage regulator and associated circuitry and energizes the 5V and GND pins on the 20 pin header (potential across GND and 5V pins will give you 5VDC).
+If I connect a wire from the GND on the 20 pin header to any pin 1-16, it energizes the associated relay.
+EXAMPLE: connect GND of 20 pin header to pin 1 will energize relay K1.
+What is a little unclear is why the board supplies 5VDC.
+I was under the impression the relay is looking for 5VDC and that would come from one of the Arduino Uno outputs? Will update when I find out more.
+
+====
+
+
