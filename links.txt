@@ -1,0 +1,4 @@
+http://www.arduino.cc/en/Tutorial/ShiftOut
+
+http://popovic.info/html/arduino/arduinoUno_1.html#Schieberegister
+
